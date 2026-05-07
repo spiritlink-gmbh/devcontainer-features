@@ -73,7 +73,8 @@ main() {
     echo "Detected package manager: $PKG_MANAGER"
 
     # Ensure curl and bash are available
-    MISSING_DEPS=""
+    # packages need for sandboxing
+    MISSING_DEPS="bubblewrap socat"
     command -v curl >/dev/null || MISSING_DEPS="$MISSING_DEPS curl"
     command -v bash >/dev/null || MISSING_DEPS="$MISSING_DEPS bash"
     if [ -n "$MISSING_DEPS" ]; then
@@ -88,8 +89,6 @@ main() {
     fi
 
     # packages need for sandboxing
-    install_packages bubblewrap socat
-
     npm install -g @anthropic-ai/sandbox-runtime
 
     # Install Claude Code CLI
