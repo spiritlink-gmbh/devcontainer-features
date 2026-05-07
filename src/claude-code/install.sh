@@ -88,9 +88,6 @@ main() {
         install_packages apk libgcc libstdc++ ripgrep
     fi
 
-    # packages need for sandboxing
-    npm install -g @anthropic-ai/sandbox-runtime
-
     # Install Claude Code CLI
     install_claude_code || exit 1
 }
